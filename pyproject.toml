@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transformer-hierarchical-layers"
+version = "0.1.0"
+description = "A strictly non-Transformer, hierarchical recurrent computation graph designed for low-budget LLMs."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+keywords = ["deep-learning", "llm", "rnn", "hierarchical", "memory-augmented"]
+authors = [
+  {name = "The Core Team", email = "erebustn@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "matplotlib>=3.0.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/erebustn/Core"
+"Bug Tracker" = "https://github.com/erebustn/Core/issues"
+
+[tool.setuptools]
+packages = ["thl"]

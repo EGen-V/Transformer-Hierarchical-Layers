@@ -1,0 +1,174 @@
+Metadata-Version: 2.4
+Name: transformer-hierarchical-layers
+Version: 0.1.0
+Summary: A strictly non-Transformer, hierarchical recurrent computation graph designed for low-budget LLMs.
+Author-email: The Core Team <erebustn@example.com>
+License: MIT License
+        
+        Copyright (c) 2026 The EGen Team
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/erebustn/Core
+Project-URL: Bug Tracker, https://github.com/erebustn/Core/issues
+Keywords: deep-learning,llm,rnn,hierarchical,memory-augmented
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.0.0
+Requires-Dist: matplotlib>=3.0.0
+Dynamic: license-file
+
+<!---
+Copyright 2026 The EGen Team. All rights reserved.
+
+Licensed under the MIT License.
+-->
+
+<p align="center">
+    <br>
+    <img src="https://img.shields.io/badge/python-3.14+-blue.svg" alt="Python Version">
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+</p>
+
+## THL: Transformer Hierarchical Layers
+
+<p align="center">
+    <a href="docs/lang/README_AR.md">العربية</a> |
+    <a href="docs/lang/README.md">English</a> |
+    <a href="docs/lang/README_ES.md">Español</a> |
+    <a href="docs/lang/README_FR.md">Français</a> |
+    <a href="docs/lang/README_zh-hans.md">简体中文</a>
+</p>
+
+---
+
+**THL** is a Python library implementing the **Transformer Hierarchical Layers** architecture: a strictly non-Transformer, hierarchical recurrent computation graph designed for **low-budget LLMs** (4GB VRAM, Mobile).
+
+THL solves the KV cache bottleneck by using **Sequence-Length Independent Memory** (O(1) memory per layer with respect to T).
+
+### Key Features
+
+- 🧠 **Bounded Memory**: Uses fixed-slot routed memory (`J=1024` slots) instead of growing KV cache.
+- ⚡ **Hierarchical Recurrence**: Multi-timescale GRU tiers processing information at different frequencies $\tau_k$.
+- 🛣️ **Sparse Routing**: Multi-head Top-K routing with optional per-step slot capacity and load-balancing auxiliary loss.
+- 👁️ **Hybrid Local Attention (Tier 0)**: Sliding-window local attention over the most recent `W` embeddings.
+- 📉 **Layered Inference**: Optimized engine for running 7B+ parameter models on 4GB VRAM GPUs via module streaming.
+- 🚀 **FP16 Optimization**: Built-in support for Automatic Mixed Precision (AMP).
+
+---
+
+## 🛠️ Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/EGen-V/Transformer-Hierarchical-Layers.git
+cd Core
+
+# Install dependencies
+pip install torch matplotlib
+```
+
+## 🚀 Quick Tour
+
+### Basic Language Modeling
+
+```python
+import torch
+from thl.config import THLConfig
+from thl.model import THLModel
+
+# 1. Configure
+config = THLConfig(
+    num_tiers=3,
+    memory_slots=1024,
+    embedding_dim=768,
+    hidden_dim=768,
+    tier_dims=[768, 768, 768],
+    tier_timescales=[1, 8, 64],
+    memory_dim=768,
+    query_dim=64,
+    value_dim=768,
+    local_window=64
+)
+
+# 2. Initialize
+model = THLModel(config) # Auto-initialization with Xavier
+
+# 3. Forward
+input_ids = torch.randint(0, config.vocab_size, (1, 32))
+logits, state = model(input_ids)
+print(logits.shape) # [1, 32, vocab_size]
+```
+
+### Low-VRAM Inference (Layered Engine)
+
+Run large models on small GPUs by streaming layers:
+
+```python
+from thl.inference.layered import LayeredInferenceEngine
+from thl.inference.state import InferenceState
+
+engine = LayeredInferenceEngine(model, device="cuda")
+state = InferenceState.init(1, config, model.tiers, model.memory_bank)
+
+token = torch.tensor([123])
+logit, state = engine.step(token, state)
+```
+
+### Fine-Tuning Sequence Classification
+
+THL supports specialized heads for downstream tasks:
+
+```python
+from thl.model import THLForSequenceClassification
+
+model = THLForSequenceClassification(config, num_labels=2)
+logits, loss = model(input_ids, labels=torch.tensor([1]))
+```
+
+## 🏗️ Architecture
+
+| Component | Description |
+|-----------|-------------|
+| **Memory Bank** | $M_t \in \mathbb{R}^{J \times d}$. Holds long-term context. |
+| **Sparse Router** | Reads relevant slots ($r_t$) using TopK queries. |
+| **Hierarchical Tiers** | Stack of recurrent cells ($s_t^{(k)}$) updating at intervals $\tau_k$. |
+| **Novelty Writer** | Writes new information to memory if novel ($w_t$). |
+
+## 🧪 Testing
+
+Run the full verification suite:
+
+```bash
+./scripts/run_tests.sh
+```
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).

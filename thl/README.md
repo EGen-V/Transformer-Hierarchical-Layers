@@ -18,7 +18,9 @@ All model code lives under `thl/` so it can be imported as a standard library mo
 - `model.py`
   - Main model implementation (`THLModel`) and task heads.
 - `tokenizer.py`
-  - Minimal tokenizer stub used by tests/examples.
+  - Robust byte-level fallback tokenizer (GPT-2 style safe encoding).
+- `errors.py`
+  - Custom exception definitions (`THLConfigError`, `THLRuntimeError`).
 
 ## Subpackages
 

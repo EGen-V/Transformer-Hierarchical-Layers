@@ -14,7 +14,8 @@ Some components (notably Top-K routing) require special handling for training vs
 ## Key files
 
 - `straight_through.py`
-  - Straight-through estimator helpers for Top-K routing.
+  - Helpers for Top-K routing.
+  - Includes `DifferentiableRouter` logic using Gumbel-Softmax for end-to-end training.
 - `losses.py`
   - `THLLoss`: task loss plus optional auxiliary terms.
 - `diagnostics.py`

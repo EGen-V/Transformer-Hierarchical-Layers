@@ -32,6 +32,7 @@ The codebase is organized to support this modular, inference-first approach.
 ### `thl/` - Core Package
 - **`config.py`**: The "DNA" of the model. Defines dimensions ($d_{model}$, $J$ slots), tiered timescales ($\tau$), and routing hyperparameters.
 - **`model.py`**: The central nervous system. Connects the Embedding, Router, Tiers, and Writer into a coherent forward pass.
+- **`tokenizer.py`**: Robust byte-level fallback tokenizer ensures safe processing of any text input.
 
 ### `thl/memory/` - The Memory System
 - **`bank.py`**: The storage medium ($M_t$). Implements non-leaky decay and sparse updates.
@@ -48,4 +49,4 @@ The codebase is organized to support this modular, inference-first approach.
 - **`state.py`**: Defines the *exact* shape of the recurrent state, ensuring it never grows beyond the defined bounds (including the bounded Tier-0 local attention buffer).
 
 ### `thl/training/` - Learning
-- **`straight_through.py`**: Implements the Straight-Through Estimator (STE) to allow backpropagation through the discrete Top-K routing decisions.
+- **`straight_through.py`**: Implements **Gumbel-Softmax** and STE logic to allow backpropagation through the discrete Top-K routing decisions, enabling end-to-end training.

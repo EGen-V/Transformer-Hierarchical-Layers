@@ -16,9 +16,12 @@ THL replaces Transformer KV-cache growth with a fixed-size, slot-indexed memory 
 - `bank.py`
   - `MemoryBank`: maintains the slot tensor and applies decay + sparse writes.
 - `router.py`
-  - `SparseRouter`: multi-head Top-K routed reads from the memory bank.
-  - Supports optional per-step slot capacity and optional load-balancing auxiliary statistics.
+  - `SparseRouter`: multi-head routed reads from the memory bank.
+  - Supports **Gumbel-Softmax** for differentiable training and hard Top-K for inference.
+  - Includes load-balancing penalties and entropy regularization terms.
 - `writer.py`
-  - `MemoryWriter`: decides whether to write new information vs update existing slots using novelty-based logic.
+  - `MemoryWriter`: handles memory consolidation.
+  - Uses **Max-Affinity Novelty** gating to filter redundant information.
+  - Implements LRU and utility-based slot replacement policies.
 - `metadata.py`
   - `BatchedMemoryMetadata`: tracks read/write timestamps and EMAs used for load penalty and LRU-style policies.

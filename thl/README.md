@@ -34,7 +34,7 @@ The `thl/` directory is structured to separate different aspects of the hierarch
 ## 📥 Installation
 
 ```bash
-pip install thl
+pip install Transformer-Hierarchical-Layers
 ```
 
 ## 🧪 Quick Usage

@@ -81,7 +81,7 @@ pip install -e .
 
 ### 快速安装 (PyPI)
 ```bash
-pip install thl
+pip install Transformer-Hierarchical-Layers
 ```
 
 ## 🚀 快速入门

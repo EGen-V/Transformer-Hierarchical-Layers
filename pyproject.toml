@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Transformer-Hierarchical-Layers"
-version = "0.1.5"
+version = "0.1.7"
 description = "A non-Transformer hierarchical recurrent network with differentiable Gumbel-Softmax routing and bounded memory slots. Runs 7B+ parameter models layer-by-layer on low-budget GPUs."
 readme = "README.md"
 requires-python = ">=3.8"

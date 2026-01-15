@@ -32,6 +32,9 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/EGen-V/Transformer-Hierarchical-Layers"
 "Bug Tracker" = "https://github.com/EGen-V/Transformer-Hierarchical-Layers/issues"
+Logo = "https://i.ibb.co/m5yN2JtW/Gemini-Generated-Image-kyoxiykyoxiykyodx.png"
+Documentation = "https://github.com/EGen-V/Transformer-Hierarchical-Layers#readme"
+
 
 [tool.setuptools]
 packages = ["thl"]

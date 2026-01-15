@@ -1,10 +1,6 @@
 include LICENSE
 include requirements.txt
 include README.md
-include README_AR.md
-include README_ES.md
-include README_FR.md
-include README_zh-hans.md
 recursive-include docs *
 recursive-exclude docs/research *
 recursive-include examples *

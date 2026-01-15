@@ -13,8 +13,8 @@ Sous licence MIT.
     <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python Version">
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
     <img src="https://img.shields.io/badge/vram-4GB-orange.svg" alt="VRAM Optimized">
-    <a href="https://github.com/EGen-V/Transformer-Hierarchical-Layers/actions">
-        <img src="https://github.com/EGen-V/Transformer-Hierarchical-Layers/workflows/Tests/badge.svg" alt="Tests">
+    <a href="https://pypi.org/project/Transformer-Hierarchical-Layers/">
+        <img src="https://img.shields.io/pypi/v/Transformer-Hierarchical-Layers.svg" alt="PyPI Version">
     </a>
 </p>
 
@@ -210,7 +210,7 @@ pytest tests/test_memory.py         # Tests de gestion de mémoire
 ## 🗺️ Feuille de Route
 
 - [ ] Checkpoints de modèles pré-entraînés
-- [ ] Publication du paquet PyPI
+- [x] Publication du paquet PyPI
 - [ ] Support d'exportation ONNX
 - [ ] Déploiement mobile (iOS/Android)
 - [ ] Déploiement web (WASM)

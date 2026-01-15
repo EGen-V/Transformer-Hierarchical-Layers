@@ -22,10 +22,10 @@
 
 <p align="center">
     <a>العربية</a> •
-    <a href="././README.md">English</a> •
-    <a href="docs/lang/README_ES.md">Español</a> •
-    <a href="docs/lang/README_FR.md">Français</a> •
-    <a href="docs/lang/README_zh-hans.md">简体中文</a>
+    <a href="../../README.md">English</a> •
+    <a href="./README_ES.md">Español</a> •
+    <a href="./README_FR.md">Français</a> •
+    <a href="./README_zh-hans.md">简体中文</a>
 </p>
 
 <h3 align="center">
@@ -201,11 +201,11 @@ pytest tests/test_memory.py         # اختبارات إدارة الذاكرة
 
 ## 📚 الوثائق
 
-- [مواصفات المعمارية](docs/THL_ARCHITECTURE_SPEC.md)
-- [سياق المشروع وفلسفته](docs/THL_CONTEXT.md)
-- [مرجع API](thl/README.md)
-- [دليل الاختبار](tests/README.md)
-- [دليل الاستدلال](thl/inference/README.md)
+- [مواصفات المعمارية](../THL_ARCHITECTURE_SPEC.md)
+- [سياق المشروع وفلسفته](../THL_CONTEXT.md)
+- [مرجع API](../../thl/README.md)
+- [دليل الاختبار](../../tests/README.md)
+- [دليل الاستدلال](../../thl/inference/README.md)
 
 ## 🗺️ خارطة الطريق
 

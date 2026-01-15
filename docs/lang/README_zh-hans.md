@@ -5,7 +5,7 @@
 -->
 
 <div align="center">
-    <img src="docs/assets/banner.png" alt="THL Banner" width="100%"/>
+    <img src="https://i.ibb.co/sJ6Vx8J0/banner.jpg" alt="THL Banner" width="100%"/>
 </div>
 <br>
 
@@ -21,10 +21,10 @@
 <h1 align="center">🐼 THL：Transformer 层级架构</h1>
 
 <p align="center">
-    <a href="docs/lang/README_AR.md">العربية</a> •
-    <a href="././README.md">English</a> •
-    <a href="docs/lang/README_ES.md">Español</a> •
-    <a href="docs/lang/README_FR.md">Français</a> •
+    <a href="./README_AR.md">العربية</a> •
+    <a href="../../README.md">English</a> •
+    <a href="./README_ES.md">Español</a> •
+    <a href="./README_FR.md">Français</a> •
     <a>简体中文</a>
 </p>
 
@@ -201,11 +201,11 @@ pytest tests/test_memory.py         # 内存管理测试
 
 ## 📚 文档
 
-- [架构规范](docs/THL_ARCHITECTURE_SPEC.md)
-- [项目背景与哲学](docs/THL_CONTEXT.md)
-- [API 参考](thl/README.md)
-- [测试指南](tests/README.md)
-- [推理指南](thl/inference/README.md)
+- [架构规范](../THL_ARCHITECTURE_SPEC.md)
+- [项目背景与哲学](../THL_CONTEXT.md)
+- [API 参考](../../thl/README.md)
+- [测试指南](../../tests/README.md)
+- [推理指南](../../thl/inference/README.md)
 
 ## 🗺️ 路线图
 

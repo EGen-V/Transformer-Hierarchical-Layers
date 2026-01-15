@@ -5,7 +5,7 @@ Sous licence MIT.
 -->
 
 <div align="center">
-    <img src="docs/assets/banner.png" alt="THL Banner" width="100%"/>
+    <img src="https://i.ibb.co/sJ6Vx8J0/banner.jpg" alt="THL Banner" width="100%"/>
 </div>
 <br>
 
@@ -21,11 +21,11 @@ Sous licence MIT.
 <h1 align="center">🐼 THL : Couches Hiérarchiques de Transformers</h1>
 
 <p align="center">
-    <a href="docs/lang/README_AR.md">العربية</a> •
-    <a href="././README.md">English</a> •
-    <a href="docs/lang/README_ES.md">Español</a> •
+    <a href="./README_AR.md">العربية</a> •
+    <a href="../../README.md">English</a> •
+    <a href="./README_ES.md">Español</a> •
     <a>Français</a> •
-    <a href="docs/lang/README_zh-hans.md">简体中文</a>
+    <a href="./README_zh-hans.md">简体中文</a>
 </p>
 
 <h3 align="center">
@@ -201,11 +201,11 @@ pytest tests/test_memory.py         # Tests de gestion de mémoire
 
 ## 📚 Documentation
 
-- [Spécification de l'Architecture](docs/THL_ARCHITECTURE_SPEC.md)
-- [Contexte et Philosophie du Projet](docs/THL_CONTEXT.md)
-- [Référence API](thl/README.md)
-- [Guide de Tests](tests/README.md)
-- [Guide d'Inférence](thl/inference/README.md)
+- [Spécification de l'Architecture](../THL_ARCHITECTURE_SPEC.md)
+- [Contexte et Philosophie du Projet](../THL_CONTEXT.md)
+- [Référence API](../../thl/README.md)
+- [Guide de Tests](../../tests/README.md)
+- [Guide d'Inférence](../../thl/inference/README.md)
 
 ## 🗺️ Feuille de Route
 

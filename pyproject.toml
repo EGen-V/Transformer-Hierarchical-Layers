@@ -3,15 +3,15 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "transformer-hierarchical-layers"
-version = "0.1.0"
-description = "A strictly non-Transformer, hierarchical recurrent computation graph designed for low-budget LLMs."
+name = "Transformer-Hierarchical-Layers"
+version = "0.1.5"
+description = "A non-Transformer hierarchical recurrent network with differentiable Gumbel-Softmax routing and bounded memory slots. Runs 7B+ parameter models layer-by-layer on low-budget GPUs."
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 keywords = ["deep-learning", "llm", "rnn", "hierarchical", "memory-augmented"]
 authors = [
-  {name = "The Core Team", email = "erebustn@example.com"}
+  {name = "The EGen Team", email = "mouhebzayani@erebustn.io"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -30,8 +30,8 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/erebustn/Core"
-"Bug Tracker" = "https://github.com/erebustn/Core/issues"
+"Homepage" = "https://github.com/EGen-V/Transformer-Hierarchical-Layers"
+"Bug Tracker" = "https://github.com/EGen-V/Transformer-Hierarchical-Layers/issues"
 
 [tool.setuptools]
 packages = ["thl"]

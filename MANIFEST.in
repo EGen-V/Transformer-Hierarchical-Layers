@@ -6,4 +6,5 @@ include README_ES.md
 include README_FR.md
 include README_zh-hans.md
 recursive-include docs *
+recursive-exclude docs/research *
 recursive-include examples *

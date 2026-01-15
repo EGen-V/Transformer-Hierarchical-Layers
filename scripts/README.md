@@ -2,16 +2,22 @@
 Copyright 2026 The EGen Team. All rights reserved.
 
 Licensed under the MIT License.
--->
-# `scripts/`
+--->
+# 🛠️ `scripts/`
 
-Helper scripts for working with the repository.
+Utility scripts for repository maintenance, development workflows, and automated testing.
 
-## Why this folder exists
+## 📜 Key Scripts
 
-Provides consistent entry points for common workflows (e.g. running the test suite).
+- **[`run_tests.sh`](./run_tests.sh)**: The primary entry point for the test suite. It handles environment setup, runs `pytest`, and ensures all critical subsystems (Memory, Tiers, Inference) are functional.
 
-## Key files
+## 🚀 Usage
 
-- `run_tests.sh`
-  - Convenience script that runs the full test suite.
+Most scripts are intended to be run from the repository root:
+
+```bash
+./scripts/run_tests.sh
+```
+
+---
+*For contributing new scripts, please ensure they are documented here and follow the project's formatting guidelines.*

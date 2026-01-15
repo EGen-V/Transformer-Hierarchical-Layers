@@ -2,16 +2,28 @@
 Copyright 2026 The EGen Team. All rights reserved.
 
 Licensed under the MIT License.
--->
-# `examples/`
+--->
+# 💡 `examples/`
 
-Runnable examples demonstrating how to use THL.
+Ready-to-run examples demonstrating how to integrate, train, and deploy **THL** models.
 
-## Why this folder exists
+## 🌟 Available Examples
 
-Examples provide a starting point for integrating THL into downstream workflows (fine-tuning, inference loops, etc.).
+### 🎓 Training & Fine-Tuning
+- **[`finetune_classification.py`](./finetune_classification.py)**: A minimal walkthrough for fine-tuning a pre-trained THL model on a text classification task using `THLForSequenceClassification`.
 
-## Key files
+## 🛠️ Getting Started
 
-- `finetune_classification.py`
-  - Minimal fine-tuning example using `THLForSequenceClassification`.
+To run these examples, ensure you have the package installed in your environment:
+
+```bash
+pip install -e .
+```
+
+Then you can execute any example script:
+
+```bash
+python examples/finetune_classification.py
+```
+
+*More examples (Question Answering, Streaming Generation) are coming soon!*
